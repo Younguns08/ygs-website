@@ -292,46 +292,73 @@
     <!-- End of bodyEnd -->
 <script>
 (function(){
-  var SLUG = 'blog/what-art-school-admissions-actually-looks-for.html';
+  var SLUG = 'blog/what-art-school-admissions-actually-looks-for';
   var IMG_SRC = 'assets/blog-what-admissions-looks-for.webp';
   var IMG_JPG = 'assets/blog-what-admissions-looks-for.jpg';
   var TITLE = 'What Art School Admissions Actually Looks For';
+  var DATE = 'July 1, 2026';
   var SIZES = "(min-width: 1200px) max(30px, 125px, max(min(100vw, 1500px) - 385px, 1px)), (min-width: 810px) and (max-width: 1199.98px) max(30px, 125px, max(min(100vw, 1500px) - 385px, 1px)), (max-width: 809.98px) max(30px, 85px, max(min(100vw, 1500px) - 165px, 1px))";
 
-  function makeCard(aClass, target) {
+  function imgHTML() {
+    return '<div style="position:absolute;border-radius:inherit;corner-shape:inherit;top:0;right:0;bottom:0;left:0" data-framer-background-image-wrapper="true">' +
+      '<img loading="lazy" decoding="async" width="1200" height="630" sizes="' + SIZES + '" srcset="' + IMG_JPG + ' 1200w,' + IMG_SRC + ' 1200w" src="' + IMG_SRC + '" alt="' + TITLE + '" style="display:block;width:100%;height:100%;border-radius:inherit;corner-shape:inherit;object-position:center;object-fit:cover">' +
+      '</div>';
+  }
+
+  function addClickHandler(a) {
+    a.addEventListener('click', function(e) {
+      e.stopImmediatePropagation();
+      e.stopPropagation();
+      e.preventDefault();
+      window.location.href = a.href;
+    });
+  }
+
+  function makeDesktopCard() {
     var a = document.createElement('a');
-    a.className = aClass;
+    a.className = 'framer-m81mn framer-6i12o0';
     a.href = SLUG;
-    if (target) a.target = target;
+    a.setAttribute('aria-label', TITLE);
     a.innerHTML =
-      '<div class="framer-1290sln">' +
-        '<div style="position:absolute;border-radius:inherit;corner-shape:inherit;top:0;right:0;bottom:0;left:0" data-framer-background-image-wrapper="true">' +
-          '<img loading="lazy" decoding="async" width="1200" height="630" sizes="' + SIZES + '" srcset="' + IMG_JPG + ' 1200w,' + IMG_SRC + ' 1200w" src="' + IMG_SRC + '" alt="' + TITLE + '" style="display:block;width:100%;height:100%;border-radius:inherit;corner-shape:inherit;object-position:center;object-fit:cover">' +
-        '</div>' +
-      '</div>' +
+      '<div class="framer-1290sln">' + imgHTML() + '</div>' +
       '<div class="framer-1b9b4k2" data-framer-name="Title" data-framer-component-type="RichTextContainer" style="transform:none">' +
         '<p class="framer-text framer-styles-preset-ntdrjv" data-styles-preset="d9JEx6qgC">' + TITLE + '</p>' +
       '</div>';
+    addClickHandler(a);
+    return a;
+  }
+
+  function makeMobileCard() {
+    var a = document.createElement('a');
+    a.className = 'framer-pw5g7l framer-6i12o0';
+    a.href = SLUG;
+    a.setAttribute('aria-label', TITLE + ', ' + DATE);
+    a.innerHTML =
+      '<div class="framer-c3y3wv">' + imgHTML() + '</div>' +
+      '<div class="framer-mgux">' +
+        '<div class="framer-1gakk9j"><h2 class="framer-text">' + TITLE + '</h2></div>' +
+        '<div class="framer-dpbi7h"><p class="framer-text"><time>' + DATE + '</time></p></div>' +
+        '<div class="framer-cuk8on"></div>' +
+      '</div>';
+    addClickHandler(a);
     return a;
   }
 
   function inject() {
-    if (document.querySelector('a[href="' + SLUG + '"]')) return; // already there
+    if (document.querySelector('a[href="' + SLUG + '"]')) return;
     var desktop = document.querySelector('a.framer-m81mn.framer-6i12o0');
     var mobile  = document.querySelector('a.framer-pw5g7l.framer-6i12o0');
-    if (!desktop && !mobile) return; // Framer not rendered yet
-    if (desktop) desktop.parentNode.insertBefore(makeCard('framer-m81mn framer-6i12o0'), desktop);
-    if (mobile)  mobile.parentNode.insertBefore(makeCard('framer-pw5g7l framer-6i12o0', '_blank'), mobile);
+    if (!desktop && !mobile) return;
+    if (desktop) desktop.parentNode.insertBefore(makeDesktopCard(), desktop);
+    if (mobile)  mobile.parentNode.insertBefore(makeMobileCard(), mobile);
   }
 
-  // Poll using rAF until Framer renders, then inject
   function poll() {
     inject();
     if (!document.querySelector('a[href="' + SLUG + '"]')) requestAnimationFrame(poll);
   }
   requestAnimationFrame(poll);
 
-  // Also re-inject if Framer ever re-renders (MutationObserver on body)
   var obs = new MutationObserver(function() { inject(); });
   obs.observe(document.body, { childList: true, subtree: true });
 })();
