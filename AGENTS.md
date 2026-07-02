@@ -1,4 +1,5 @@
 <!-- BEGIN:nextjs-agent-rules -->
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
@@ -45,6 +46,38 @@ editable in plain code.
 
 ## Deployment
 
-GitHub `Younguns08/ygs-website` → Vercel (project TBD — do NOT deploy to the
-existing `ygs-website` Vercel project; that one proxies Framer and holds the
-live ygstudio.ca domain until Pete approves cutover).
+GitHub `Younguns08/ygs-website` → Vercel project `ygs-rebuild`
+(https://ygs-rebuild.vercel.app). Do NOT deploy to the `ygs-website` Vercel
+project — that one proxies Framer and holds the live ygstudio.ca domain until
+Pete approves cutover (Phase 9, written go-ahead only).
+
+## Non-negotiables (from Pete's migration spec — binding)
+
+1. Framer is read-only. Never modify, republish over, or delete anything in it.
+2. No GoDaddy DNS changes until final cutover, and only with Pete's written OK.
+3. Never deploy to the production domain during the build. Preview URLs only.
+4. No band-aids or "temporary" fixes. Blocked? Stop and ask Pete.
+5. Feature branches + small reviewable commits. No force-pushing main.
+6. One page at a time; a page is not done until it passes the checks below.
+
+## Per-page definition of done
+
+- Visual regression: pixel-diff vs `reference/screens/` at 390 / 768 / 1024 /
+  1440 (+1512 for Framer's xl tier) is **< 1%**, or Pete accepted the diff in
+  writing (record it in MIGRATION-LOG.md).
+- Every link and CTA on the page resolves to the same destination as the
+  original. Zero broken links (`npm run test:links`).
+- Animations match the captured timing/easing, or the difference is approved.
+- Conventional commit per page; MIGRATION-LOG.md updated.
+
+## Code standards
+
+- TypeScript strict; zero `any`, zero `@ts-ignore` without a justification
+  comment. Server Components by default; `"use client"` only at the smallest
+  interactive leaf.
+- Design tokens only — every brand color/size exists exactly once
+  (`app/globals.css` @theme). No hex values or magic numbers in components.
+- `/app` routes · `/components` UI · `/lib` logic/integrations · `/content` MDX.
+- Env vars validated at boot in `lib/env.ts` (zod). Secrets only in Vercel env.
+- Lint/format/typecheck run pre-commit (husky + lint-staged) and in CI; CI
+  also runs the Playwright suite. Red CI = no merge.

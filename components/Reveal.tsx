@@ -22,8 +22,9 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
+      // Deferred to a frame: avoids a synchronous set-state cascade on mount.
+      const t = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(t);
     }
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -34,7 +35,7 @@ export default function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     io.observe(el);
     return () => io.disconnect();

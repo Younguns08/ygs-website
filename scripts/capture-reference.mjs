@@ -24,6 +24,8 @@ const PAGES = [
 
 // Framer breakpoints: >=1496 / 1200-1495 / 810-1199 / <=809
 const VIEWPORTS = [
+  { name: "desktop-1440", width: 1440, height: 900 },
+  { name: "tablet-768", width: 768, height: 900 },
   { name: "desktop-xl", width: 1512, height: 900 },
   { name: "desktop", width: 1280, height: 800 },
   { name: "tablet", width: 1024, height: 800 },
