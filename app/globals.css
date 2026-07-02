@@ -20,18 +20,23 @@
   --color-ygs-blue: var(--ygs-blue);
   --color-ygs-pink: var(--ygs-pink);
 
-  /* Title/display face — ALL CAPS, Bold Italic priority */
+  /* Brand display face — inner-page title banners (ALL CAPS, Bold Italic) */
   --font-title: var(--font-cooper-hewitt);
-  /* Headings */
-  --font-heading: var(--font-clear-sans);
-  /* Body copy */
-  --font-sans: var(--font-source-sans);
+  /* Headings + UI — measured from the live site: Inter Variable */
+  --font-heading: var(--font-inter);
+  /* Nav/body — measured from the live site: Source Sans 3 */
+  --font-sans: var(--font-source-sans-3);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-source-sans), sans-serif;
+  font-family: var(--font-source-sans-3), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Inter Variable display optical size, as the original uses (opsz 32) */
+.font-heading {
+  font-optical-sizing: auto;
 }

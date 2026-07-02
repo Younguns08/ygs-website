@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cooperHewitt, clearSans, sourceSansPro } from "./fonts";
+import { cooperHewitt, inter, sourceSans3 } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cooperHewitt.variable} ${clearSans.variable} ${sourceSansPro.variable} h-full antialiased`}
+      className={`${cooperHewitt.variable} ${inter.variable} ${sourceSans3.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

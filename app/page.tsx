@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import HeroVideo from "@/components/HeroVideo";
+import SplitText from "@/components/SplitText";
 
 /* ————————————————————————————————————————————————————————————
    Homepage — 1:1 rebuild of ygstudio.ca (see reference/screens/home--*.jpg)
@@ -147,13 +148,22 @@ export default function Home() {
           <HeroVideo />
           <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
           <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-            <h1 className="font-heading text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Unlock Your Child&rsquo;s Creative Intelligence —{" "}
-              <span className="text-ygs-red">Build a Future AI Can&rsquo;t Replace</span>
+            {/* Measured: Inter Variable 40px, tracking -0.04em, leading 1.0;
+                white part wght 700, red part wght 600; letter-stagger entrance */}
+            <h1 className="font-heading text-[28px] leading-none tracking-[-0.04em] text-white sm:text-[34px] lg:text-[40px]">
+              <SplitText
+                text="Unlock Your Child’s Creative Intelligence — "
+                className="font-bold"
+              />
+              <SplitText
+                text="Build a Future AI Can’t Replace"
+                className="font-semibold text-ygs-red"
+                baseDelay={780}
+              />
             </h1>
             <Link
               href="/lets-chat"
-              className="mt-8 inline-block rounded-full bg-ygs-red px-7 py-3 font-heading text-sm font-bold text-white transition-transform hover:scale-105"
+              className="mt-8 inline-block rounded-full bg-ygs-red px-7 py-3 font-heading text-sm font-semibold tracking-[-0.01em] text-white transition-transform hover:scale-105"
             >
               Book a 1:1 Consultation
             </Link>
@@ -163,11 +173,13 @@ export default function Home() {
         {/* ——— Intro + stats (navy) ——— */}
         <section className="bg-ygs-navy px-6 py-24 text-center text-white">
           <Reveal>
-            <h2 className="mx-auto max-w-3xl font-heading text-3xl font-bold leading-tight sm:text-4xl">
+            {/* Measured: 40px wght 700 tracking -0.04em leading 1.0;
+                subhead 30px wght 600 in brand blue */}
+            <h2 className="mx-auto max-w-3xl font-heading text-[28px] font-bold leading-[1.1] tracking-[-0.04em] sm:text-[34px] lg:text-[40px]">
               Young Guns is Vancouver&rsquo;s Premier Art &amp; Design Institute for Ambitious
               Students.
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-ygs-pink">
+            <p className="mx-auto mt-4 max-w-2xl font-heading text-[22px] font-semibold tracking-[-0.02em] text-ygs-blue sm:text-[26px] lg:text-[30px]">
               We don&rsquo;t just build portfolios — we build identity, agency, and rigour.
             </p>
           </Reveal>
@@ -178,8 +190,13 @@ export default function Home() {
               { stat: "17+ Years", label: "Boutique studio focused on elite creative education" },
             ].map((s, i) => (
               <Reveal key={s.stat} delay={i * 120}>
-                <p className="font-heading text-5xl font-bold">{s.stat}</p>
-                <p className="mx-auto mt-3 max-w-[220px] text-sm text-white/80">{s.label}</p>
+                {/* Measured: 64px wght 700 tracking -0.04em; labels 22px wght 600 gray */}
+                <p className="font-heading text-[48px] font-bold leading-none tracking-[-0.04em] lg:text-[64px]">
+                  {s.stat}
+                </p>
+                <p className="mx-auto mt-3 max-w-[240px] font-heading text-[18px] font-semibold tracking-[-0.02em] text-[rgb(186,186,186)] lg:text-[22px]">
+                  {s.label}
+                </p>
               </Reveal>
             ))}
           </div>

@@ -39,7 +39,7 @@ export default function Nav() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="font-heading text-[13px] font-bold tracking-wide text-ygs-navy hover:text-ygs-red transition-colors"
+                className="font-sans text-[16px] font-bold text-ygs-navy hover:text-ygs-red transition-colors"
               >
                 {l.label}
               </Link>
