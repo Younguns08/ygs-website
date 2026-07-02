@@ -6,17 +6,17 @@ Cutover: Phase 9 only, written approval required.
 
 ## Page status
 
-| Page            | Rebuilt                                | Visual diff | Links       | Status                         |
-| --------------- | -------------------------------------- | ----------- | ----------- | ------------------------------ |
-| / (home)        | yes (first pass + measured hero/stats) | not yet run | not yet run | in progress                    |
-| /approach       | no                                     | —           | —           | pending                        |
-| /schedule       | no                                     | —           | —           | pending                        |
-| /about-us       | no                                     | —           | —           | pending                        |
-| /outcomes       | no                                     | —           | —           | pending                        |
-| /gallery        | no                                     | —           | —           | pending                        |
-| /blog           | no                                     | —           | —           | pending                        |
-| /blog/[slug] ×7 | no                                     | —           | —           | pending (MDX, Phase 7)         |
-| /lets-chat      | no                                     | —           | —           | pending (Lark iframe, Phase 4) |
+| Page            | Rebuilt                                | Visual diff                   | Links       | Status                         |
+| --------------- | -------------------------------------- | ----------------------------- | ----------- | ------------------------------ |
+| / (home)        | yes (first pass + measured hero/stats) | 68–83% (baseline, 2026-07-02) | not yet run | in progress — target <1%       |
+| /approach       | no                                     | —                             | —           | pending                        |
+| /schedule       | no                                     | —                             | —           | pending                        |
+| /about-us       | no                                     | —                             | —           | pending                        |
+| /outcomes       | no                                     | —                             | —           | pending                        |
+| /gallery        | no                                     | —                             | —           | pending                        |
+| /blog           | no                                     | —                             | —           | pending                        |
+| /blog/[slug] ×7 | no                                     | —                             | —           | pending (MDX, Phase 7)         |
+| /lets-chat      | no                                     | —                             | —           | pending (Lark iframe, Phase 4) |
 
 ## Decisions
 
