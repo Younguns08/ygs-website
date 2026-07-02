@@ -25,10 +25,25 @@ await p.evaluate(async () => {
 
 const data = await p.evaluate(() => {
   const PROPS = [
-    "fontFamily", "fontSize", "fontWeight", "fontStyle", "lineHeight",
-    "letterSpacing", "textTransform", "textAlign", "color",
-    "backgroundColor", "borderRadius", "padding", "margin", "gap",
-    "maxWidth", "width", "height", "boxShadow", "opacity",
+    "fontFamily",
+    "fontSize",
+    "fontWeight",
+    "fontStyle",
+    "lineHeight",
+    "letterSpacing",
+    "textTransform",
+    "textAlign",
+    "color",
+    "backgroundColor",
+    "borderRadius",
+    "padding",
+    "margin",
+    "gap",
+    "maxWidth",
+    "width",
+    "height",
+    "boxShadow",
+    "opacity",
   ];
   const pick = (el) => {
     const cs = getComputedStyle(el);
@@ -40,7 +55,9 @@ const data = await p.evaluate(() => {
 
   const results = [];
   // Every heading and visible text block, with geometry
-  const els = document.querySelectorAll("h1,h2,h3,h4,p,a,li,blockquote,figcaption,span[data-framer-name],div[data-framer-name]");
+  const els = document.querySelectorAll(
+    "h1,h2,h3,h4,p,a,li,blockquote,figcaption,span[data-framer-name],div[data-framer-name]",
+  );
   const seen = new Set();
   for (const el of els) {
     const r = el.getBoundingClientRect();

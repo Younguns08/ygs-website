@@ -22,12 +22,15 @@ export default function SplitText({
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReduced(true);
-      return;
-    }
-    // Kick off on mount (hero is above the fold).
-    const t = requestAnimationFrame(() => setGo(true));
+    // Deferred to a frame: avoids a synchronous set-state cascade on mount.
+    const t = requestAnimationFrame(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setReduced(true);
+      } else {
+        // Kick off on mount (hero is above the fold).
+        setGo(true);
+      }
+    });
     return () => cancelAnimationFrame(t);
   }, []);
 
@@ -52,7 +55,7 @@ export default function SplitText({
             >
               {ch}
             </span>
-          )
+          ),
         )}
       </span>
     </>

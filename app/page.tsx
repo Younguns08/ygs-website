@@ -28,7 +28,11 @@ const FRAMEWORK_STAGES = [
   { n: 2, title: "Integrate", desc: "Explore disciplines, connect ideas, and test directions." },
   { n: 3, title: "Breakthrough", desc: "Develop a distinct voice and creative identity." },
   { n: 4, title: "Capstone", desc: "Design and document a signature project." },
-  { n: 5, title: "Impact", desc: "Take your work into the real world and into elite applications." },
+  {
+    n: 5,
+    title: "Impact",
+    desc: "Take your work into the real world and into elite applications.",
+  },
 ];
 
 const TIERS = [
@@ -89,9 +93,9 @@ const PARENT_QUOTES = [
   {
     body: (
       <>
-        Before we discovered YG Studio, my son was adrift, spending countless hours on video
-        games, and showing little interest in academics or responsibility for his future. The
-        young boy I worried about just a year ago has{" "}
+        Before we discovered YG Studio, my son was adrift, spending countless hours on video games,
+        and showing little interest in academics or responsibility for his future. The young boy I
+        worried about just a year ago has{" "}
         <strong className="text-ygs-red">evolved into a different teenager</strong> altogether,
         someone disciplined, committed, authentic, and passionate.
       </>
@@ -101,10 +105,10 @@ const PARENT_QUOTES = [
   {
     body: (
       <>
-        I witnessed Lauren transforming from a not so confident and committed person to someone
-        who was <strong className="text-ygs-red">driven and focused</strong>… not because she
-        will be accepted by prestigious institutions, but because she is now equipped with tools
-        that will stay with her to face the future for the rest of her life.
+        I witnessed Lauren transforming from a not so confident and committed person to someone who
+        was <strong className="text-ygs-red">driven and focused</strong>… not because she will be
+        accepted by prestigious institutions, but because she is now equipped with tools that will
+        stay with her to face the future for the rest of her life.
       </>
     ),
     name: "Elaine Y.",
@@ -114,9 +118,9 @@ const PARENT_QUOTES = [
       <>
         Pete has sharp insight, enthusiasm, and patience. This is crucial for discovering a
         child&rsquo;s individuality and potential,{" "}
-        <strong className="text-ygs-red">laying the foundation for their passion</strong>,
-        portfolio development, and even future career pursuits… We are very grateful that Amy
-        found YG and had the chance to grow in such an inspiring environment.
+        <strong className="text-ygs-red">laying the foundation for their passion</strong>, portfolio
+        development, and even future career pursuits… We are very grateful that Amy found YG and had
+        the chance to grow in such an inspiring environment.
       </>
     ),
     name: "Sophia A.",
@@ -250,13 +254,11 @@ export default function Home() {
               </h2>
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-ygs-navy/80">
                 <p>Most art studios focus on technique and teach students to follow a formula.</p>
+                <p>We teach creative intelligence—the rare human abilities AI cannot imitate.</p>
                 <p>
-                  We teach creative intelligence—the rare human abilities AI cannot imitate.
-                </p>
-                <p>
-                  We cultivate curiosity, rigor, and agency. Students learn to think outside of
-                  the box, shape their ideas with intention, and create work that they are stoked
-                  to share with the world.
+                  We cultivate curiosity, rigor, and agency. Students learn to think outside of the
+                  box, shape their ideas with intention, and create work that they are stoked to
+                  share with the world.
                 </p>
               </div>
             </Reveal>
@@ -338,7 +340,9 @@ export default function Home() {
           <div className="mx-auto max-w-6xl rounded-[2.5rem] bg-ygs-navy px-6 py-16 text-white sm:px-12">
             <Reveal className="text-center">
               <h2 className="font-heading text-3xl font-bold sm:text-4xl">Our Product Ecosystem</h2>
-              <p className="mt-3 text-lg text-ygs-pink">Three Tracks, One Path to Creative Mastery</p>
+              <p className="mt-3 text-lg text-ygs-pink">
+                Three Tracks, One Path to Creative Mastery
+              </p>
             </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {TIERS.map((t, i) => (
@@ -449,8 +453,8 @@ export default function Home() {
                 </p>
                 <p className="font-bold text-ygs-navy">That&rsquo;s what we train.</p>
                 <p>
-                  Tools will change. Your child&rsquo;s creative intelligence won&rsquo;t. We
-                  build the part AI can&rsquo;t replace.
+                  Tools will change. Your child&rsquo;s creative intelligence won&rsquo;t. We build
+                  the part AI can&rsquo;t replace.
                 </p>
               </div>
             </Reveal>
@@ -529,19 +533,19 @@ export default function Home() {
                   </p>
                   <p>
                     Together we worked on his mindset and voice, unearthing his brilliance
-                    underneath the chaos. He built a powerful portfolio of projects that mattered
-                    to him—sensory instruments, a chair for forest bathing, a manifesto about
+                    underneath the chaos. He built a powerful portfolio of projects that mattered to
+                    him—sensory instruments, a chair for forest bathing, a manifesto about
                     perception, to give some examples. The result? Roy was accepted to USC&rsquo;s
-                    Iovine &amp; Young Academy, one of the most selective innovation programs in
-                    the world.
+                    Iovine &amp; Young Academy, one of the most selective innovation programs in the
+                    world.
                   </p>
                   <p>
                     Now he&rsquo;s found his tribe. He&rsquo;s building apps with AI, joining
                     hackathons in Shanghai, working with developers and entrepreneurs at IYA.
                   </p>
                   <p>
-                    I built YG for kids like Roy—students who can think creatively, take risks,
-                    and build original ideas the world hasn&rsquo;t seen before.
+                    I built YG for kids like Roy—students who can think creatively, take risks, and
+                    build original ideas the world hasn&rsquo;t seen before.
                   </p>
                   <p className="font-bold text-white">
                     Don&rsquo;t let your child&rsquo;s spark get buried in compliance. Let&rsquo;s

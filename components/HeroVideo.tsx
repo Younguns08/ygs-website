@@ -20,7 +20,7 @@ export default function HeroVideo() {
           io.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "200px" },
     );
     io.observe(video);
     return () => io.disconnect();
